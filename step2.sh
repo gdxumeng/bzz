@@ -10,7 +10,7 @@ tCnt=`cat $cntFile`
 for ((i=1; i<=tCnt; i ++))
 do
 echo "对第$i个节点添加自动提取。"
-echo "00 02 * * * root /root/cashout${i}.sh cashout-all" >> /etc/crontab
+echo "00 02 * * * root /data/bees/cashout${i}.sh cashout-all" >> /etc/crontab
 screen -dmS bee$i
 screen -x -S bee$i -p 0 -X stuff "bee start --config node${i}.yaml"
 screen -x -S bee$i -p 0 -X stuff $'\n'
@@ -19,9 +19,9 @@ sleep 2
 done
 screen -ls
 echo "尝试添加监听脚本……"
-[[ -f /root/bee_watcher.sh ]] && echo "已存在监听脚本！" && exit 1
-echo "*/5 * * * * root /root/bee_watcher.sh" >> /etc/crontab
-cat > /root/bee_watcher.sh <<'EOF'
+[[ -f /data/bees/bee_watcher.sh ]] && echo "已存在监听脚本！" && exit 1
+echo "*/5 * * * * root /data/bees/bee_watcher.sh" >> /etc/crontab
+cat > /data/bees/bee_watcher.sh <<'EOF'
 #!/usr/bin/env bash
 cntFile=".showcnt.txt"
 if [ ! -f $cntFile ]; then
@@ -42,4 +42,4 @@ fi
 done
 EOF
 echo "已创建监听脚本。"
-chmod 777 /root/bee_watcher.sh
+chmod 777 /data/bees/bee_watcher.sh
