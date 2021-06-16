@@ -43,6 +43,7 @@ p2p-addr: :$((1734+${tCnt}))
 password-file: /data/bees/password
 verbosity: 3
 swap-endpoint: ${ep}
+swap-initial-deposit: "10000000000000000"
 EOF
 cp cashout.sh cashout${tCnt}.sh
 sed -i "s/1635/$((1634+${tCnt}))/g" cashout${tCnt}.sh
