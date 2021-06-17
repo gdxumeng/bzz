@@ -12,6 +12,7 @@ wget https://github.com/ethersphere/bee/releases/download/v1.0.0-rc2/bee_1.0.0-r
 wget -O cashout.sh https://gist.githubusercontent.com/ralph-pichler/3b5ccd7a5c5cd0500e6428752b37e975/raw/aa576d6d28b523ea6f5d4a1ffb3c8cc0bbc2677f/cashout.sh && chmod 777 cashout.sh
 wget https://raw.githubusercontent.com/gdxumeng/bzz/main/step2.sh && chmod 777 step2.sh
 wget https://raw.githubusercontent.com/gdxumeng/bzz/main/step3.sh && chmod 777 step3.sh
+wget https://raw.githubusercontent.com/gdxumeng/bzz/main/shop_all.sh && chmod 777 shop_all.sh
 sudo dpkg -i bee_1.0.0-rc2_amd64.deb && sudo chown -R bee:bee /data/bees
 echo "0" > $cntFile
 chmod +rw $cntFile
