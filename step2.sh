@@ -10,7 +10,6 @@ tCnt=`cat $cntFile`
 for ((i=1; i<=tCnt; i ++))
 do
 echo "对第$i个节点添加自动提取。"
-echo "00 02 * * * root /data/bees/cashout${i}.sh cashout-all" >> /etc/crontab
 screen -dmS bee$i
 screen -x -S bee$i -p 0 -X stuff "bee start --config node${i}.yaml"
 screen -x -S bee$i -p 0 -X stuff $'\n'
