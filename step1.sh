@@ -33,18 +33,20 @@ echo $tCnt > $cntFile
 echo "    这是第 $tCnt 次创建节点"
 echo "    若需更改endpoint，请自行修改epFile.txt"
 cat>node${tCnt}.yaml<<EOF
-api-addr: :$((1535+${tCnt}))
+api-addr: :$((1534+${tCnt}))
 config: /data/node${tCnt}.yaml
 data-dir: /data/bees/node${tCnt}
 cache-capacity: "2000000"
 block-time: "15"
-debug-api-addr: :$((1635+${tCnt}))
+bootnode:
+- /dnsaddr/bootnode.ethswarm.org
+debug-api-addr: :$((1634+${tCnt}))
 #debug-api-addr: 127.0.0.1:$((1635+${tCnt}))
 debug-api-enable: true
-p2p-addr: :$((1735+${tCnt}))
+p2p-addr: :$((1734+${tCnt}))
 password-file: /data/bees/password
 swap-initial-deposit: "10000000000000000"
-verbosity: 5
+verbosity: 3
 swap-endpoint: ${ep}
 full-node: true
 welcome-message: "youyin"
